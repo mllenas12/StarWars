@@ -5,6 +5,7 @@ import {
   selectStatus,
 } from "../../features/dataStarship/DataStarshipSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks";
+import { Link } from "react-router-dom";
 
 const ListStarships = () => {
   const dispatch = useAppDispatch();
@@ -17,14 +18,23 @@ const ListStarships = () => {
     }
   }, [dataStatus, dispatch]);
 
-  const starshipInfo = dataStarships.map((starship, index) => {
+  const starshipElement = dataStarships.map((starship) => {
+    const portionsUrl = starship.url.split("/");
+
+    const id = portionsUrl[portionsUrl.length - 2];
+
     return (
       <div
-        key={index}
+        key={id}
         className="w-2/3 mx-auto bg-neutral-900 text-neutral-500 my-5 p-4 rounded"
       >
-        <p className="">{starship.name.toUpperCase()}</p>
-        <p className="text-sm">{starship.model}</p>
+        <Link
+          to={`/starships/${id}`}
+          aria-label={`View details for ${starship.name} starhip`}
+        >
+          <p>{starship.name.toUpperCase()}</p>
+          <p className="text-sm">{starship.model}</p>
+        </Link>
       </div>
     );
   });
@@ -36,7 +46,7 @@ const ListStarships = () => {
           Loading...
         </h1>
       )}
-      {dataStatus == "succeeded" && starshipInfo}
+      {dataStatus == "succeeded" && starshipElement}
     </div>
   );
 };

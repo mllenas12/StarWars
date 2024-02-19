@@ -4,7 +4,7 @@ const Header = () => {
       <div className="w-1/5"></div>
       <div className="w-3/5 py-4">
         <img
-          src="src/assets/star_wars_logo.png"
+          src="/src/assets/star_wars_logo.png"
           alt="star wars logo"
           className="h-14 md:h-20 lg:h-24 mx-auto"
         />
