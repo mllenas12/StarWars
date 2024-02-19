@@ -1,8 +1,14 @@
+import { User } from "firebase/auth";
+
+export type TAuthState = User | null
+
 export interface IDataState {
     data: IData,
     status: "idle" | "loading" | "succeeded" | "failed"
     error: null | string | undefined,
 };
+
+export type AuthState = User | null;
 
 export interface IData {
     count: number,

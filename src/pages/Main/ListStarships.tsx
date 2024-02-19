@@ -11,7 +11,7 @@ const StarshipsExcerpt: React.FC<{ starship: IStarship }> = ({ starship }) => {
   return (
     <div
       key={id}
-      className="w-4/5 md:w-2/3  mx-auto bg-neutral-900 text-neutral-500 my-2 p-4 rounded"
+      className="w-4/5 md:w-2/3  mx-auto bg-neutral-900  text-neutral-500 hover:text-yellow-500 my-2 p-4 rounded"
     >
       <Link
         to={`/starships/${id}`}
@@ -54,7 +54,7 @@ const ListStarships = () => {
       >
         SHOW MORE
         <img
-          src="src/assets/arrow.svg"
+          src="/src/assets/arrow.svg"
           alt="arrow button"
           className="w-3 my-auto"
         />

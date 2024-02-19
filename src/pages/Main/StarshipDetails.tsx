@@ -106,7 +106,7 @@ export const StarshipDetails = () => {
   }
 
   return (
-    <div className="px-8 my-4 bg-[url('/src/assets/bg-body.jpeg')]">
+    <div className="px-8 my-4 bg-[url('/src/assets/bg-body.webp')]">
       {content}
     </div>
   );
