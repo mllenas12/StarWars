@@ -1,6 +1,8 @@
 import { User } from "firebase/auth";
 
 export type TAuthState = User | null
+export type TPilotOrUndefined = IPilot | undefined;
+export type TFilmOrUndefined = IFilmCard | undefined;
 
 export interface IDataState {
     data: IData,
@@ -9,6 +11,19 @@ export interface IDataState {
 };
 
 export type AuthState = User | null;
+
+export interface IFilmCard {
+    title: string,
+    episode: string,
+    imgUrl: string,
+    id: string,
+}
+
+export interface IPilot {
+    name: string,
+    imgUrl: string,
+    id: string,
+};
 
 export interface IData {
     count: number,

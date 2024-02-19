@@ -9,8 +9,8 @@ import { UserCredential } from "firebase/auth";
 
 export const Login = () => {
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    userEmail: "",
+    userPassword: "",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -25,17 +25,20 @@ export const Login = () => {
     e.preventDefault();
     setError("");
     try {
-      await signInWithEmailAndPassword(auth, user.email, user.password).then(
-        (currentUser: UserCredential) => {
-          dispatch(
-            login({
-              userName: currentUser.user.displayName,
-              userEmail: currentUser.user.email,
-            })
-          );
-          navigate("/starships");
-        }
-      );
+      await signInWithEmailAndPassword(
+        auth,
+        user.userEmail,
+        user.userPassword
+      ).then((currentUser: UserCredential) => {
+        dispatch(
+          login({
+            userName: currentUser.user.displayName,
+            userEmail: currentUser.user.email,
+          })
+        );
+        navigate("/starships");
+        console.log(currentUser);
+      });
     } catch (error: any) {
       let errorCode = error.code
         .split("auth/")[1]
@@ -83,23 +86,23 @@ export const Login = () => {
         <p className="text-xs py-2">
           Log into your Star Wars account to enjoy more content.
         </p>
-        <label htmlFor="email" className="font-semibold md:text-xl">
+        <label htmlFor="userEmail" className="font-semibold md:text-xl">
           Enter your email
         </label>
         <input
           type="email"
-          name="email"
+          name="userEmail"
           required
           onChange={handleChange}
           className="rounded w-full bg-slate-200  mx-auto mb-2 md:h-10"
         />
-        <label htmlFor="password" className="font-semibold md:text-xl">
+        <label htmlFor="UserPassword" className="font-semibold md:text-xl">
           Password
         </label>
         <input
           type="password"
-          name="password"
-          id="password"
+          name="userPassword"
+          id="userPassword"
           required
           onChange={handleChange}
           className="rounded w-full bg-slate-200  mx-auto  md:h-10"

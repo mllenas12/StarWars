@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../hooks/storeHooks";
 import { auth } from "../../utils/Firebaseconfig";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { login } from "../../features/userAuth/userSlice";
 export const Register = () => {
   const [user, setUser] = useState({
@@ -25,11 +25,14 @@ export const Register = () => {
     e.preventDefault();
     setError("");
     try {
-      await createUserWithEmailAndPassword(
+      const currentUser = await createUserWithEmailAndPassword(
         auth,
         user.userEmail,
         user.userPassword
       );
+      await updateProfile(currentUser.user, {
+        displayName: user.userName,
+      });
       dispatch(
         login({
           userName: user.userName,
