@@ -1,8 +1,15 @@
 export interface IDataState {
-    data: IStarship[],
+    data: IData,
     status: "idle" | "loading" | "succeeded" | "failed"
     error: null | string | undefined,
 };
+
+export interface IData {
+    count: number,
+    next: string | null,
+    previous: string | null,
+    results: IStarship[]
+}
 
 //https://github.com/amitmtrn/swapi-ts/blob/main/src/SWApi.ts
 export interface IStarship {

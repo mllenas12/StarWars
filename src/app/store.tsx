@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataStarshipReducer from "../features/dataStarship/DataStarshipSlice";
-
+import { apiSlice } from "../features/dataStarship/apiSlice";
 export const store = configureStore({
   reducer: {
-    dataStarship: dataStarshipReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
