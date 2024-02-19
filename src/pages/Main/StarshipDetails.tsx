@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetStarshipsQuery } from "../../features/dataStarship/apiSlice";
+
 export const StarshipDetails = () => {
   const {
     data: starships,
@@ -105,7 +106,7 @@ export const StarshipDetails = () => {
   }
 
   return (
-    <div className="px-8 my-4 bg-[url('src/assets/bg-body.jpeg')]">
+    <div className="px-8 my-4 bg-[url('/src/assets/bg-body.jpeg')]">
       {content}
     </div>
   );

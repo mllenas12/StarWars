@@ -1,8 +1,9 @@
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import ListStarships from "../pages/Main/ListStarships";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StarshipDetails } from "../pages/Main/StarshipDetails";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "../pages/Home/Home";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/" element={<ListStarships />} />
+        <Route path="/" element={<Home />} />
         <Route path="/starships" element={<ListStarships />} />
         <Route path="/starships/:id" element={<StarshipDetails />} />
       </Routes>
