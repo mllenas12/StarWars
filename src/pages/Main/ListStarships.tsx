@@ -11,7 +11,7 @@ const StarshipsExcerpt: React.FC<{ starship: IStarship }> = ({ starship }) => {
   return (
     <div
       key={id}
-      className="w-2/3 mx-auto bg-neutral-900 text-neutral-500 my-5 p-4 rounded"
+      className="w-4/5 md:w-2/3  mx-auto bg-neutral-900 text-neutral-500 my-2 p-4 rounded"
     >
       <Link
         to={`/starships/${id}`}
@@ -50,7 +50,7 @@ const ListStarships = () => {
     starships?.count > starships?.results.length ? (
       <button
         onClick={() => handleViewMore()}
-        className="text-white text-sm w-40 p-2 px-4 mx-auto mb-10 border border-yellow-400 rounded-full flex flex-row gap-2 justify-center"
+        className="text-white text-sm w-40 p-2 px-4 mx-auto my-4 border border-yellow-400 rounded-full flex flex-row gap-2 justify-center"
       >
         SHOW MORE
         <img
@@ -73,7 +73,7 @@ const ListStarships = () => {
         </h1>
       )}
       {isSuccess && (
-        <div className="flex flex-col overflow-y-auto">
+        <div className="flex flex-col  my-4">
           {starships.results.map((starship: any) => (
             <StarshipsExcerpt key={nanoid()} starship={starship} />
           ))}
