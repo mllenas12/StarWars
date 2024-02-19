@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetStarshipsQuery } from "../../features/dataStarship/apiSlice";
 import { Pilots } from "../../features/dataStarship/Pilots";
+import { Films } from "../../features/dataStarship/Films";
 import { IStarship } from "../../types/types";
 export const StarshipDetails = () => {
   const {
@@ -117,6 +118,14 @@ export const StarshipDetails = () => {
             <div className="border-t border-gray-700 "></div>
           </div>
           <Pilots currentStarship={currentStarship} />
+        </div>
+        <div>
+          <div className="py-4">
+            <div className="border-t border-gray-700"></div>
+            <div className="text-white pl-4">FILMS</div>
+            <div className="border-t border-gray-700 "></div>
+          </div>
+          <Films currentStarship={currentStarship} />
         </div>
       </>
     );

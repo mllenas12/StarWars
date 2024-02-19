@@ -82,7 +82,7 @@ export const Login = () => {
         onSubmit={handleSubmit}
         className="flex flex-col bg-white rounded-3xl w-2/3 xl:w-1/3 mx-auto gap-2 p-8 md:px-20 text-black"
       >
-        <h2 className="font-bold text-3xl">Login</h2>
+        <h2 className="font-bold text-3xl">Log In</h2>
         <p className="text-xs py-2">
           Log into your Star Wars account to enjoy more content.
         </p>
