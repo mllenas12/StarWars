@@ -1,8 +1,8 @@
+import { auth } from "../../utils/Firebaseconfig";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../utils/Firebaseconfig";
 import { useAppDispatch } from "../../hooks/storeHooks";
 import { login } from "../../features/userAuth/userSlice";
 import { UserCredential } from "firebase/auth";

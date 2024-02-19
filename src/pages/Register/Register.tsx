@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/storeHooks";
+import { auth } from "../../utils/Firebaseconfig";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../utils/Firebaseconfig";
 import { login } from "../../features/userAuth/userSlice";
 export const Register = () => {
   const [user, setUser] = useState({
@@ -38,7 +38,6 @@ export const Register = () => {
       );
       navigate("/starships");
     } catch (error: any) {
-      console.log(error);
       let errorCode = error.code
         .split("auth/")[1]
         .replaceAll("-", " ")
@@ -97,7 +96,7 @@ export const Register = () => {
           onChange={handleChange}
           className="rounded w-full bg-slate-200  mx-auto mb-2 md:h-10 text-black"
         />
-        <label htmlFor="email" className="font-semibold md:text-xl">
+        <label htmlFor="userEmail" className="font-semibold md:text-xl">
           Email
         </label>
         <input
