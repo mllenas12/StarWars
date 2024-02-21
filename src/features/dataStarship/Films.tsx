@@ -8,7 +8,6 @@ export const Films = ({ currentStarship }: any) => {
 
   React.useEffect(() => {
     setLoading(true);
-    console.log(currentStarship);
     const getInfo = async () => {
       try {
         const filmsPromises = currentStarship.films.map(async (url: string) => {

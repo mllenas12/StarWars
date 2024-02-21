@@ -41,6 +41,7 @@ const ListStarships = () => {
   const handleViewMore = () => {
     setScrollPosition({ x: window.scrollX, y: window.scrollY });
     setPage((prevPage) => prevPage + 1);
+    console.log(page);
   };
 
   React.useEffect(() => {
