@@ -4,6 +4,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useGetStarshipsQuery } from "../../features/dataStarship/apiSlice";
 import { useState } from "react";
 import { IStarship } from "../../types/types";
+import { Loading } from "../../components/Loading";
 
 const StarshipsExcerpt: React.FC<{ starship: IStarship }> = ({ starship }) => {
   const portionsUrl = starship.url.split("/");
@@ -66,12 +67,8 @@ const ListStarships = () => {
     );
 
   return (
-    <section className="bg-black ">
-      {isLoading && (
-        <h1 className="text-xl text-center py-8 text-neutral-500">
-          Loading...
-        </h1>
-      )}
+    <section className="bg-black">
+      {isLoading && <Loading />}
       {isSuccess && (
         <div className="flex flex-col  my-4">
           {starships.results.map((starship: any) => (

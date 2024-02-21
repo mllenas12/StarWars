@@ -15,7 +15,10 @@ const Header = () => {
   return (
     <div className="flex bg-black bg-no-repeat bg-center ">
       <div className="w-1/3 md:my-auto px-1">
-        <div className="hidden md:flex justify-start pl-8">
+        <div
+          className="hidden md:flex justify-start pl-8"
+          data-testid="social-media-icons"
+        >
           <a href="https://www.tiktok.com/@starwars" className="px-2 my-auto">
             <img
               className="md:w-4 lg:w-6"

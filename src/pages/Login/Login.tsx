@@ -37,7 +37,6 @@ export const Login = () => {
           })
         );
         navigate("/starships");
-        console.log(currentUser);
       });
     } catch (error: any) {
       let errorCode = error.code
